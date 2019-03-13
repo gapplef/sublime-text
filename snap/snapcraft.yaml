@@ -25,6 +25,8 @@ parts:
       # Get the latest release
       echo "Get latest release..."
       wget --quiet https://download.sublimetext.com/latest/stable -O release.txt
+      # Forcing a build from the dev branch
+      echo 3189 > release.txt
       VERSION=$(cat release.txt)
       echo $VERSION > $SNAPCRAFT_STAGE/version
       rm -f release.txt 2>/dev/null
@@ -64,7 +66,7 @@ parts:
     stage-packages:
       - libbsd0
       - libffi6
-      - libgtk2.0-0
+      - libgtk-3-0
       - libpcre3
       - libx11-6
       - libxau6
